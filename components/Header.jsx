@@ -64,8 +64,6 @@ export default function Header() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         </Menu>
     );
 
@@ -89,14 +87,23 @@ export default function Header() {
             <MenuItem>
                 <IconButton
                     size="large"
-                    aria-label="show 17 new notifications"
                     color="inherit"
                 >
                     <Badge badgeContent={chosenImages.length} color="error">
                         <ImageIcon />
                     </Badge>
                 </IconButton>
-                <p>Notifications</p>
+                <p>images</p>
+            </MenuItem>
+            <MenuItem>
+                <IconButton
+                    size="large"
+                    color="inherit"
+                >
+                    <DownloadImagesAsZip imageUrls={chosenImages.map(i => i.img)} />
+
+                </IconButton>
+                <p>download</p>
             </MenuItem>
         </Menu>
     );
@@ -142,7 +149,6 @@ export default function Header() {
                             size="large"
                             color="inherit"
                         >
-                            {/* <ImageIcon /> */}
                             <DownloadImagesAsZip imageUrls={chosenImages.map(i => i.img)} />
                         </IconButton>
                     </Box>
