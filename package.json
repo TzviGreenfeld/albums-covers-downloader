@@ -11,6 +11,7 @@
     "@mui/icons-material": "^5.14.15",
     "@mui/material": "^5.14.15",
     "@mui/styled-engine-sc": "^5.0.0",
+    "axios": "^1.5.1",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "next": "latest",

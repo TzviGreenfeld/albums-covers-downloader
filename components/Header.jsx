@@ -11,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import ImageIcon from '@mui/icons-material/Image';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import SearchIcon from '@mui/icons-material/Search';
 
 import { useChosenImages } from '../context/ChosenImagesContext';
 import DownloadImagesAsZip from './DownloadImagesAsZip';
@@ -27,6 +28,10 @@ export default function Header() {
 
     const navigateToDownload = () => {
         router.push('/download');
+    };
+
+    const navigateHome = () => {
+        router.push('/');
     };
 
     const handleMobileMenuClose = () => {
@@ -108,6 +113,16 @@ export default function Header() {
                     >
                         BOI
                     </Typography>
+                    <Box
+                        sx={{ display: { xs: 'none', md: 'flex' } }}
+                        onClick={navigateHome}>
+                        <IconButton
+                            size="large"
+                            color="inherit"
+                        >
+                            <SearchIcon />
+                        </IconButton>
+                    </Box>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box
                         sx={{ display: { xs: 'none', md: 'flex' } }}

@@ -35,10 +35,10 @@ export default function Gallery({ title, items }) {
                 picked: false,
             </ImageListItem>
             {items.map((item, index) => (
-                <ImageListItem key={item.img}>
+                <ImageListItem key={item.img} sx={{ maxWidth: '250px' }}>
                     <img
-                        srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                        src={`${item.img}?w=248&fit=crop&auto=format`}
+                        srcSet={`${item.img}`}
+                        src={`${item.img}`}
                         alt={item.title}
                         loading="lazy"
                         onClick={() => togglePick(index)}
