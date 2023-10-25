@@ -10,6 +10,7 @@ import Layout from '../../components/Layout';
 export default () => {
     const router = useRouter();
     const [albums, setAlbums] = useState([]);
+    const [artistName, setArtistName] = useState('');
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -29,7 +30,17 @@ export default () => {
             }
         };
 
+        const fetchArtistName = async () => {
+            try {
+                const { data } = await axios.get(`/api/artistName?artistId=${router.query.artistId}`);
+                setArtistName(data.name);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
         fetchData();
+        fetchArtistName();
     }, []);
 
     return (
@@ -41,7 +52,7 @@ export default () => {
                 </Head>
 
                 <main>
-                    <Gallery title={"artist"} items={albums} />
+                    <Gallery title={artistName} items={albums} />
                 </main>
             </div>
         </Layout>

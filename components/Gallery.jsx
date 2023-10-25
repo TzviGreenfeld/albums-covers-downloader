@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -8,10 +8,29 @@ import IconButton from '@mui/material/IconButton';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import { useChosenImages } from '../context/ChosenImagesContext';
+import { Typography } from '@mui/material';
 
 export default function Gallery({ title, items }) {
     const [chosenImages, setChosenImages] = useChosenImages();
     const [picked, setPicked] = useState(Array(items.length).fill(false));
+
+    const [isDesktop, setIsDesktop] = useState(true);
+    useEffect(() => {
+        // Helper function to set the number of columns based on screen width
+        const updateCols = () => {
+            if (window.innerWidth <= 1000) {
+                setIsDesktop(false);
+            } else {
+                setIsDesktop(true);
+            }
+        };
+
+        updateCols();
+
+        window.addEventListener('resize', updateCols);
+
+        return () => window.removeEventListener('resize', updateCols);
+    }, []);
 
     const togglePick = (index) => {
         const newPicked = [...picked];
@@ -29,13 +48,12 @@ export default function Gallery({ title, items }) {
     };
 
     return (
-        <ImageList sx={{ width: '100vh', height: '100wh' }}>
-            <ImageListItem key="Subheader" cols={3}>
-                <ListSubheader component="div">{title}</ListSubheader>
-                picked: false,
+        <ImageList >
+            <ImageListItem key="Subheader" cols={isDesktop ? 3 : 1}>
+                <ListSubheader component="div"><Typography>{title}</Typography></ListSubheader>
             </ImageListItem>
             {items.map((item, index) => (
-                <ImageListItem key={item.img} sx={{ maxWidth: '250px' }}>
+                <ImageListItem key={item.img} sx={{ maxWidth: isDesktop ? '250px' : '100%' }}>
                     <img
                         srcSet={`${item.img}`}
                         src={`${item.img}`}

@@ -109,19 +109,22 @@ export default function Header() {
     );
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+        <Box sx={{ flexGrow: 1, position: 'sticky', top: 0, zIndex: 1000 }}>
+            {/* <AppBar position="static"> */}
+            <AppBar style={{ position: 'sticky', top: 0 }}>
                 <Toolbar>
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ display: { xs: 'none', sm: 'block' } }}
+                        sx={{ display: { xs: 'flex', sm: 'block' } }}
+                    // sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
-                        BOI
+                        MILNER HAFRRAYIER
                     </Typography>
                     <Box
-                        sx={{ display: { xs: 'none', md: 'flex' } }}
+                        // sx={{ display: { xs: 'none', md: 'flex' } }}
+                        sx={{ display: { xs: 'flex', md: 'flex' } }}
                         onClick={navigateHome}>
                         <IconButton
                             size="large"
@@ -132,7 +135,8 @@ export default function Header() {
                     </Box>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box
-                        sx={{ display: { xs: 'none', md: 'flex' } }}
+                        // sx={{ display: { xs: 'none', md: 'flex' } }}
+                        sx={{ display: { xs: 'flex', md: 'flex' } }}
                         onClick={navigateToDownload}>
                         <IconButton
                             size="large"
@@ -144,7 +148,8 @@ export default function Header() {
                             </Badge>
                         </IconButton>
                     </Box>
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    {/* <Box sx={{ display: { xs: 'none', md: 'flex' } }}> */}
+                    <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
                         <IconButton
                             size="large"
                             color="inherit"
@@ -152,7 +157,8 @@ export default function Header() {
                             <DownloadImagesAsZip imageUrls={chosenImages.map(i => i.img)} />
                         </IconButton>
                     </Box>
-                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                    {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}> */}
+                    {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="show more"
@@ -163,10 +169,10 @@ export default function Header() {
                         >
                             <MoreIcon />
                         </IconButton>
-                    </Box>
+                    </Box> */}
                 </Toolbar>
             </AppBar>
-            {renderMobileMenu}
+            {/* {renderMobileMenu} */}
             {renderMenu}
         </Box>
     );

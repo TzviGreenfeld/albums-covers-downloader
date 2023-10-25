@@ -5,6 +5,7 @@ import homeStyles from '../styles/Home.module.css';
 import Head from 'next/head';
 import CardGrid from '../components/CardGrid';
 import Layout from '../components/Layout';
+import { Typography } from '@mui/material';
 
 
 export default function Find() {
@@ -42,9 +43,9 @@ export default function Find() {
                 </Head>
 
                 <main>
-                    <p className={homeStyles.description}>
+                    <Typography className={homeStyles.description}>
                         Find artists
-                    </p>
+                    </Typography>
                     <input type='text'
                         className='wide'
                         value={query}
