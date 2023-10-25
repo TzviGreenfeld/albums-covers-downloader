@@ -1,41 +1,27 @@
 import { useRouter } from 'next/router';
+
 import Gallery from '../../components/Gallery';
 import Head from 'next/head';
+import Layout from '../../components/Layout';
 
 export default () => {
     const router = useRouter();
     console.log(router.query.artistId);
 
     return (
-        <div className='container'>
-            <Head>
-                <title>milner</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+        <Layout>
+            <div className='container'>
+                <Head>
+                    <title>milner</title>
+                    <link rel="icon" href="/favicon.ico" />
+                </Head>
 
-            <main>
-                <Gallery title={"drakyboiii"} items={itemData} />
-            </main>
+                <main>
+                    <Gallery title={"drakyboiii"} items={itemData} />
+                </main>
+            </div>
+        </Layout>
 
-            <style jsx>{`
-    main {
-        padding: 5rem 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }   
-    .container {
-        min-height: 100vh;
-        padding: 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    `}</style>
-        </div>
     );
 };
 
