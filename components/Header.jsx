@@ -117,8 +117,8 @@ export default function Header() {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ display: { xs: 'flex', sm: 'block' } }}
-                    // sx={{ display: { xs: 'none', sm: 'block' } }}
+                        onClick={navigateHome}
+                        sx={{ display: { xs: 'flex', sm: 'block' }, cursor: 'pointer' }}
                     >
                         MILNER HAFRRAYIER
                     </Typography>
