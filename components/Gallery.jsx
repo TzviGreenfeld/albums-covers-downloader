@@ -10,9 +10,9 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useChosenImages } from '../context/ChosenImagesContext';
 import { Typography } from '@mui/material';
 
-export default function Gallery({ title, items }) {
+export default function Gallery({ title, items, initalPicked = false }) {
     const [chosenImages, setChosenImages] = useChosenImages();
-    const [picked, setPicked] = useState(Array(items.length).fill(false));
+    const [picked, setPicked] = useState(Array(items.length).fill(initalPicked));
 
     const [isDesktop, setIsDesktop] = useState(true);
     useEffect(() => {

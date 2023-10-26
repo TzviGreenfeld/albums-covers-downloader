@@ -36,7 +36,7 @@ export default () => {
                 </Typography>
 
                 <main>
-                    <Gallery title={"all artists"} items={chosenImages} />
+                    <Gallery title={"all artists"} items={chosenImages} initalPicked={true} />
                 </main>
             </div>
         </Layout>
