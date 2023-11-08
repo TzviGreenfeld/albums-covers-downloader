@@ -10,10 +10,9 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useChosenImages } from '../context/ChosenImagesContext';
 import { Typography } from '@mui/material';
 
-export default function Gallery({ title, items, initalPicked = false }) {
+export default function Gallery({ title, items, initialPicked = false }) {
     const [chosenImages, setChosenImages] = useChosenImages();
-    const [picked, setPicked] = useState(Array(items.length).fill(initalPicked));
-
+    const [picked, setPicked] = useState(Array(items.length).fill(initialPicked));
     const [isDesktop, setIsDesktop] = useState(true);
     useEffect(() => {
         // Helper function to set the number of columns based on screen width
@@ -41,9 +40,9 @@ export default function Gallery({ title, items, initalPicked = false }) {
         // handle chosen images
         const imageToAdd = items[index];
         if (newPicked[index]) {
-            setChosenImages([...chosenImages, imageToAdd]);
+            setChosenImages(oldImages => [...oldImages, imageToAdd]);
         } else {
-            setChosenImages(chosenImages.filter(i => i.img !== imageToAdd.img));
+            setChosenImages(oldImages => oldImages.filter(i => i.img !== imageToAdd.img));
         }
     };
 

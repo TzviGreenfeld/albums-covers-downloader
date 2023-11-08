@@ -1,4 +1,3 @@
-import { useState } from 'react';
 
 import Head from 'next/head';
 
@@ -36,7 +35,7 @@ export default () => {
                 </Typography>
 
                 <main>
-                    <Gallery title={"all artists"} items={chosenImages} initalPicked={true} />
+                    <Gallery title={"all artists"} items={chosenImages} initialPicked={true} />
                 </main>
             </div>
         </Layout>
